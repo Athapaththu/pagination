@@ -81,7 +81,7 @@ export default function LanguageItem() {
     }
   };
 
-  console.log(language?.data,"outlan")
+  // console.log(language?.data,"outlan")
   return (
     <div>
       <Box>  

@@ -18,7 +18,8 @@ export default function English() {
   useEffect(() => {
     const fetchPosts = async () => {
       setLoading(true);
-      const res = await axios.get("https://jsonplaceholder.typicode.com/posts");
+      // const res = await axios.get("https://jsonplaceholder.typicode.com/posts");
+      const res = await axios.get("http://3.108.65.233/api/forum/getquestions");
       setPosts([...res.data ,...res.data]);
       setLoading(false);
     };
@@ -42,10 +43,6 @@ export default function English() {
 
   if (!question) return null;
 
-
-
-
-
   return (
     
     <div>
@@ -59,8 +56,9 @@ export default function English() {
           if (item.subTopic === subTopic) {
             
             return (
+              
               <div key={item} style={{ padding: "20px 0" }}>
-                
+                  
                 <Typography
                   variant="h6"
                   style={{ fontWeight: 600, padding: "3px 0" }}
@@ -76,12 +74,7 @@ export default function English() {
           }
         })}
       </Typography>
-      <Posts posts={currentPosts} loading={loading}/>
-      <PaginatePosts
-        postsPerPage={postsPerPage}
-        totalPosts={posts.length}
-        paginate={paginate}
-      />
+     
     </div>
     
   );
